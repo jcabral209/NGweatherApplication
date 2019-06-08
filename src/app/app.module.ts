@@ -7,7 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LaunchComponent } from './views/pages/launch/launch.component';
 import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.component';
-
+import { PanelModule } from 'primeng/panel';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,10 @@ import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.compo
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    PanelModule,
+    AppRoutingModule,
+    CheckboxModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
