@@ -7,6 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LaunchComponent } from './views/pages/launch/launch.component';
 import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.component';
+import { PanelModule } from 'primeng/panel';
+
+
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +25,10 @@ import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.compo
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

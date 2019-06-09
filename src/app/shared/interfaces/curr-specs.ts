@@ -1,23 +1,47 @@
-export interface CurrSpecs {
+// export interface ICurrSpecs {
 
-    cityId: number;
-    cityName: string;
-    windSpeed: Wind;
-    windDeg: Wind;
-    windGust: Wind;
-    humidity: Main;
-    lat: Coord;
-    lon: Coord;
-    temp: Main;
-    pressure: Main;
-    temp_min: Main;
-    temp_max: Main;
-    visibility: number;
-    weatherIcon: Weather;
-    weatherDescription: Weather;
-    timezone: number;
-    country: Sys;
-}
+//     lon: number;
+//     lat: number;
+//     weatherMain: string;
+//     description: string;
+//     icon: string;
+//     temp: number;
+//     pressure: number;
+//     humidity: number;
+//     temp_min: number;
+//     temp_max: number;
+//     visibility: number;
+//     windSpeed: number;
+//     windGust: number;
+//     windDeg: number;
+//     dt: number;
+//     country: string;
+//     timezone: number;
+//     id: number;
+//     name: string;
+
+
+// }
+
+//     cityId: number;
+//     cityName: string;
+//     time: number;
+//     windSpeed: Wind;
+//     windDeg: Wind;
+//     windGust: Wind;
+//     humidity: Main;
+//     lat: Coord;
+//     lon: Coord;
+//     temp: Main;
+//     pressure: Main;
+//     temp_min: Main;
+//     temp_max: Main;
+//     visibility: number;
+//     weatherIcon: Weather;
+//     weatherDescription: Weather;
+//     timezone: number;
+//     country: Sys;
+// }
 
 export interface Main {
     temp: number;
@@ -96,3 +120,24 @@ export interface Weather {
 //   "id": 5373900,
 //   "name": "Modesto",
 //   "cod": 200
+
+export interface IForecast {
+    temp: number;
+    temp_min: number;
+    temp_max: number;
+    pressure: number;
+    humidity: number;
+    weatherMain: string;
+    description: string;
+    icon: string;
+    windSpeed: number;
+    windDeg: number;
+    dt: string;
+    country: string;
+    timezone: number;
+    id: number;
+    name: string;
+    lon: number;
+    lat: number;
+    polution: number;
+  }

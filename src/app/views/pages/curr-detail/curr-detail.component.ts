@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrWeatherService } from 'src/app/shared/services/curr-weather.service';
+import { ForecastService } from 'src/app/shared/services/forecast.service';
 
 @Component({
   selector: 'app-curr-detail',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrDetailComponent implements OnInit {
 
-  constructor() { }
+  weatherData: any = {};
+  forecastData: any = {};
+  list: any[] = [];
+  city: string;
+  constructor(
+    private SWeather: CurrWeatherService,
+    private SForecast: ForecastService
+    ) { }
 
-  ngOnInit() {
+
+   async ngOnInit() {
+    this.city = 'Modesto';
+    await this.SWeather.getWeatherData(this.city).then(data => {
+      this.weatherData = data;
+    });
+    await this.SForecast.getForecastData(this.city).then(data => {
+      this.forecastData = data;
+    });
+    // this.forecastData = this.SForecast.getForecastData(this.city);
+    console.log('NGONinit for Weather', this.weatherData);
+    console.log('NGONinit for forecast', this.forecastData);
   }
-
 }

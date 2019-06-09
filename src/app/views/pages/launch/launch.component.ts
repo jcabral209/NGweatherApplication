@@ -11,7 +11,7 @@ export class LaunchComponent implements OnInit {
   constructor(private weatherService: CurrWeatherService) { }
 
   ngOnInit() {
-    this.weatherService.getURLDataP('Modesto');
+    // this.weatherService.getURLDataP('Modesto');
   }
 
 }
