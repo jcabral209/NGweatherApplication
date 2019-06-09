@@ -12,13 +12,17 @@ import { PanelModule } from 'primeng/panel';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchBarComponent } from './views/pages/search-bar/search-bar.component';
+import { DisplayBarComponent } from './views/pages/display-bar/display-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LaunchComponent,
-    CurrDetailComponent
+    CurrDetailComponent,
+    SearchBarComponent,
+    DisplayBarComponent
   ],
   imports: [
     BrowserModule,
