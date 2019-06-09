@@ -1,27 +1,27 @@
-// export interface ICurrSpecs {
+export interface ICurrSpecs {
 
-//     lon: number;
-//     lat: number;
-//     weatherMain: string;
-//     description: string;
-//     icon: string;
-//     temp: number;
-//     pressure: number;
-//     humidity: number;
-//     temp_min: number;
-//     temp_max: number;
-//     visibility: number;
-//     windSpeed: number;
-//     windGust: number;
-//     windDeg: number;
-//     dt: number;
-//     country: string;
-//     timezone: number;
-//     id: number;
-//     name: string;
+    lon: number;
+    lat: number;
+    weatherMain: string;
+    description: string;
+    icon: string;
+    temp: number;
+    pressure: number;
+    humidity: number;
+    temp_min: number;
+    temp_max: number;
+    visibility: number;
+    windSpeed: number;
+    windGust: number;
+    windDeg: number;
+    dt: number;
+    country: string;
+    timezone: number;
+    id: number;
+    name: string;
 
 
-// }
+}
 
 //     cityId: number;
 //     cityName: string;
