@@ -1,21 +1,23 @@
 export interface ICurrSpecs {
 
-    lon: number;
-    lat: number;
-    weatherMain: string;
-    description: string;
-    icon: string;
-    temp: number;
-    pressure: number;
-    humidity: number;
-    temp_min: number;
-    temp_max: number;
+    lon: Coord;
+    lat: Coord;
+    main: Weather;
+    description: Weather;
+    icon: Weather;
+    temp: Main;
+    pressure: Main;
+    humidity: Main;
+    temp_min: Main;
+    temp_max: Main;
     visibility: number;
-    windSpeed: number;
-    windGust: number;
-    windDeg: number;
+    Speed: Wind;
+    Gust: Wind;
+    Deg: Wind;
     dt: number;
-    country: string;
+    country: Sys;
+    sunrise: Sys;
+    sunset: Sys;
     timezone: number;
     id: number;
     name: string;
