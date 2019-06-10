@@ -30,7 +30,7 @@ export class CurrDetailComponent implements OnInit {
     //   this.forecastData = data;
     // });
     // this.forecastData = this.SForecast.getForecastData(this.city);
-    // console.log('NGONinit for Weather', this.weatherData);
+    console.log('NGONinit for Weather', this.weatherData);
     // console.log('NGONinit for forecast', this.forecastData);
   }
 }

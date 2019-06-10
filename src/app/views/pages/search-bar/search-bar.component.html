@@ -1,5 +1,6 @@
-<p>
-  search-bar works!
-</p>
 
-<input #cityCountry  type="text"><button (click)= "addCity(cityCountry.value, $event)">Search</button>
+<div class="div" class="mt-3">
+  <h4>Enter your city</h4>
+  <input #cityCountry type="text"><button (click)="addCity(cityCountry.value, $event)" pButton type="button"
+    label="Search"></button>
+</div>

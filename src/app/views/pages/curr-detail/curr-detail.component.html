@@ -1,33 +1,40 @@
-<div class="p-grid">
-  <div class="p-col">1</div>
-  <div class="p-col">2</div>
-  <div class="p-col">3</div>
-</div>
-
 <div class="container">
   <div class="row">
-    <div class="col-4">This is a test</div>
-    <div class="col-8">
-        <h2>Weather in {{weatherData?.name}}, {{weatherData?.country}} </h2> 
-        <!-- <img src="../../../../assets/flags/24x24/{{weatherData.country}}.png" alt=""> -->
-            <!-- <img src="http://openweathermap.org/images/flags/{{weatherData?.country}}.png" alt=""> -->
-  
+
+    <div class="col-12">
+      <h2><b>Weather in </b></h2>
+      <h2><b>{{weatherData?.name}}, {{weatherData?.country}} <img
+          src="../../../../assets/flags/48x48/{{weatherData?.country}}.png" class="flag-align" alt=""></b></h2>
     </div>
     <div class="col-12">
-        <!-- <img src="https://openweathermap.org/img/w/{{weatherData?.icon}}.png" width="60" alt=""> -->
-        <h3>{{weatherData?.temp}} F </h3>
-      </div>
-      <div class="col-8">{{weatherData?.dt}}</div>
-
-
+      <h1>
+        <img src="https://openweathermap.org/img/w/{{weatherData?.icon}}.png" width="60" alt="">
+        {{weatherData?.temp}} &deg;F </h1>
+    </div>
+    <div class="col-12">
+      <h5> <i>Temperature from {{weatherData?.temp_min}}&deg;F to {{weatherData?.temp_max}}&deg;F</i></h5>
+    </div>
+    <div class="col-12">
+      <h5>{{weatherData?.description}}</h5>
+    </div>
+    <div class="col-12">{{weatherData?.dTime}}</div>
+    <div class="row table mt-3">
+      <div class="col-6"><b> Wind</b></div>
+      <div class="col-6">{{weatherData?.windSpeed}} m/h <br>{{weatherData?.windDeg}}<br>{{weatherData?.windGust}} </div>
+      <div class="col-6"><b>Cloudiness</b></div>
+      <div class="col-6">{{weatherData?.description}}</div>
+      <div class="col-6"><b>Pressure</b></div>
+      <div class="col-6">{{weatherData?.pressure}} hpa</div>
+      <div class="col-6"><b>Humidity</b></div>
+      <div class="col-6">{{weatherData?.humidity}} %</div>
+      <div class="col-6"><b>Sunrise</b></div>
+      <div class="col-6">{{weatherData?.sunrise}}</div>
+      <div class="col-6"><b>Sunset</b></div>
+      <div class="col-6">{{weatherData?.sunset}}</div>
+      <div class="col-6"><b>Geo coords</b></div>
+      <div class="col-6">{{weatherData?.lon}}, {{weatherData?.lat}} </div>
+    </div>
   </div>
 </div>
 
 
-<h1>
-  The Tempereature for {{weatherData?.name}}, {{weatherData?.country}} is {{weatherData?.temp}} <br>
-This is the time  {{weatherData?.dTime}}
-</h1>
-
-<button pButton type="button" label="Click" ></button>
-<p-button label="Click" ></p-button>

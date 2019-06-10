@@ -10,7 +10,7 @@ import { LaunchComponent } from './views/pages/launch/launch.component';
 import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.component';
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
-
+import { SidebarModule } from 'primeng/sidebar';
 
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './views/pages/search-bar/search-bar.component';
@@ -37,7 +37,8 @@ import { ForecastDisplayComponent } from './views/pages/forecast-display/forecas
     AppRoutingModule,
     CommonModule,
     PanelModule,
-    ButtonModule
+    ButtonModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
