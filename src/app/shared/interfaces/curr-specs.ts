@@ -124,7 +124,6 @@ export interface Weather {
 //   "cod": 200
 
 export interface IForecast {
-  lenght: number;
     temp: number;
     temp_min: number;
     temp_max: number;
