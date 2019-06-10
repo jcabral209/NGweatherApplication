@@ -9,12 +9,13 @@
     <div class="col-3">
       <div class="row">
         <div class="col-12">
-          <!-- <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-                <h1 style="font-weight:normal">Search</h1>
-            </p-sidebar> -->
-          <app-search-bar></app-search-bar>
-          <app-display-bar></app-display-bar>
+            <button type="button" (click)="toggleSideBar()">Open Sidebar</button>
+          <p-sidebar [(visible)]="display" [baseZIndex]="99999" autoZIndex="true" [showCloseIcon]="true">
+            <h1 style="font-weight:normal">Search</h1>
 
+            <app-search-bar></app-search-bar>
+            <app-display-bar></app-display-bar>
+          </p-sidebar>
         </div>
       </div>
 
@@ -22,6 +23,7 @@
     <div class="col-9">
       <div class="row">
         <div class="col-5">
+          
           <app-curr-detail></app-curr-detail>
         </div>
         <div class="col-7">GRAPHS</div>

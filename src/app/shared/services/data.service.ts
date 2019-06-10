@@ -11,7 +11,7 @@ export class DataService {
   private urlKey = '4109ffc3fcbdb1d5f8c9711fceac0e39';
   constructor(private http: HttpClient) { }
   getUrl(urlSearch: string) {
-    // console.log(this.urlBase + urlSearch + this.urlExt + this.urlKey);
+    console.log(this.urlBase + urlSearch + this.urlExt + this.urlKey);
     return this.http.get(this.urlBase + urlSearch + this.urlExt + this.urlKey);
   }
 }

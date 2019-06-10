@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarModule } from 'primeng/sidebar';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  display = true;
   title = 'CSA Weather Application';
+  toggleSideBar(): void {
+    this.display = !this.display;
+  }
 }

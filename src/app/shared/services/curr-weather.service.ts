@@ -69,7 +69,7 @@ export class CurrWeatherService {
       temp_max: pData.main.temp_max,
       visibility: pData.visibility,
       windSpeed: pData.wind.speed,
-      windDeg: pData.wind.speed,
+      windDeg: pData.wind.deg,
       windGust: pData.wind.gust,
       dt: pData.dt,
       dTime: pData.dt,

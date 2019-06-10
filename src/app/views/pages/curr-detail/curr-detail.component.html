@@ -20,17 +20,17 @@
     <div class="col-12">{{weatherData?.dTime}}</div>
     <div class="row table mt-3">
       <div class="col-6"><b> Wind</b></div>
-      <div class="col-6">{{weatherData?.windSpeed}} m/h <br>{{weatherData?.windDeg}}<br>{{weatherData?.windGust}} </div>
+      <div class="col-6"><i>Speed</i> {{weatherData?.windSpeed}} m/h <br><i>Deg</i> {{weatherData?.windDeg}}&deg;</div>
       <div class="col-6"><b>Cloudiness</b></div>
       <div class="col-6">{{weatherData?.description}}</div>
       <div class="col-6"><b>Pressure</b></div>
       <div class="col-6">{{weatherData?.pressure}} hpa</div>
       <div class="col-6"><b>Humidity</b></div>
-      <div class="col-6">{{weatherData?.humidity}} %</div>
+      <div class="col-6">{{weatherData?.humidity}}%</div>
       <div class="col-6"><b>Sunrise</b></div>
-      <div class="col-6">{{weatherData?.sunrise}}</div>
+      <div class="col-6">{{weatherData?.sunrise}} PST</div>
       <div class="col-6"><b>Sunset</b></div>
-      <div class="col-6">{{weatherData?.sunset}}</div>
+      <div class="col-6">{{weatherData?.sunset}} PST</div>
       <div class="col-6"><b>Geo coords</b></div>
       <div class="col-6">{{weatherData?.lon}}, {{weatherData?.lat}} </div>
     </div>

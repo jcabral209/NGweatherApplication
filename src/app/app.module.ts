@@ -11,6 +11,7 @@ import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.compo
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
+import { CardModule } from 'primeng/card';
 
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './views/pages/search-bar/search-bar.component';
@@ -38,9 +39,11 @@ import { ForecastDisplayComponent } from './views/pages/forecast-display/forecas
     CommonModule,
     PanelModule,
     ButtonModule,
-    SidebarModule
+    SidebarModule,
+    CardModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [SidebarModule]
 })
 export class AppModule { }

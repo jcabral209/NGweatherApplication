@@ -1,33 +1,30 @@
-<p>
-  forecast-display works!
-</p>
-
-
-
-
-{{fData[0]?.dt}}
-{{fData[0]?.humidity}}
-{{fData[0]?.icon}}
-{{fData[0]?.id}}
-{{fData[0]?.lat}}
-{{fData[0]?.lon}}
-{{fData[0]?.name}}
-{{fData[0]?.polution}}
-{{fData[0]?.pressure}}
-{{fData[0]?.temp}}
-{{fData[0]?.temp_max}}
-{{fData[0]?.temp_min}}
-{{fData[0]?.timezone}}
-{{fData[0]?.weatherMain}}
-{{fData[0]?.windDeg}}
-{{fData[0]?.windSpeed}}
-
-<h1>THIS IS THE DISPLAY ARR <br>
-
-{{dailyWeatherArr[0]?.temp_max}} <br>
-{{dailyWeatherArr[0]?.temp_min}} <br>
-{{dailyWeatherArr[0]?.timezone}} <br>
-{{dailyWeatherArr[0]?.weatherMain}} <br>
-{{dailyWeatherArr[0]?.windDeg}} <br>
-{{dailyWeatherArr[0]?.windSpeed}} <br>
-</h1>
+<div class="row">
+  <div class="col-12 mt-3">
+    <h2>Current weather forecast</h2>
+  </div>
+  <div *ngFor="let item of dailyWeatherArr" class="col-2">
+    <p-card>
+      <div class="col-12">{{item.timezone}}:00 <br>{{item.dt}}</div>
+      <div class="col-12"><img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="60" alt="">
+      </div>
+      <div class="col-12">{{item.temp}}&deg;F</div>
+      <div class="col-12">{{item.windSpeed}} m/h</div>
+      <div class="col-12">{{item.humidity}}%</div>
+    </p-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 mt-5">
+    <h2>Five-day weather forecast</h2>
+  </div>
+  <div *ngFor="let item of fiveDaysWeather" class="col-2">
+    <p-card>
+      <div class="col-12">{{item.dt}}</div>
+      <div class="col-12"><img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="60" alt="">
+      </div>
+      <div class="col-12">{{item.temp}}&deg;F</div>
+      <div class="col-12">{{item.windSpeed}} m/h</div>
+      <div class="col-12">{{item.humidity}}%</div>
+    </p-card>
+  </div>
+</div>

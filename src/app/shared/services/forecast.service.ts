@@ -31,7 +31,7 @@ export class ForecastService {
       console.log('This is i -->', i);
       const myDate = new Date( i.dt * 1000);
       i.dt = myDate.toDateString();
-      parseD.city.timezone = this.formatTime(myDate);
+      parseD.city.timezone = myDate.getHours();
       const nfo: IForecast = {
         temp: i.main.temp,
         temp_min: i.main.temp_min,
