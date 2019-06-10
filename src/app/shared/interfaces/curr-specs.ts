@@ -124,6 +124,7 @@ export interface Weather {
 //   "cod": 200
 
 export interface IForecast {
+  lenght: number;
     temp: number;
     temp_min: number;
     temp_max: number;
@@ -142,4 +143,29 @@ export interface IForecast {
     lon: number;
     lat: number;
     polution: number;
+  }
+
+export interface IWeather {
+    lon: number;
+    lat: number;
+    weatherMain: string;
+    description: string;
+    icon: string;
+    temp: number;
+    pressure: number;
+    humidity: number;
+    temp_min: number;
+    temp_max: number;
+    visibility: number;
+    windSpeed: number;
+    windGust: number;
+    windDeg: number;
+    dt: string;
+    dTime: string;
+    country: string;
+    sunrise: number;
+    sunset: number;
+    timezone: number;
+    id: number;
+    name: string;
   }
