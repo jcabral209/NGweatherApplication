@@ -1,29 +1,44 @@
 <p-panel>
   <p-header>
-    <h1>{{ title }}</h1>
+    <div class="row justify-content:center">
+      <div class="col-1 mt-3">
+
+          <!-- <button class="navbar-toggler hidden-sm-up" type="button" (click)="toggleSideBar()" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>Open Sidebar
+            </button> -->
+            <button (click)="toggleSideBar()" class="hamburger" type="button">--
+                <span class="hamburger-boring">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+
+        <!-- <button type="button" (click)="toggleSideBar()">Open Sidebar</button> -->
+      </div>
+      <div class="col-11 justify-content:center">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
   </p-header>
 </p-panel>
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3">
+
+    <div *ngIf="display" class="col-3">
       <div class="row">
         <div class="col-12">
-            <button type="button" (click)="toggleSideBar()">Open Sidebar</button>
           <p-sidebar [(visible)]="display" [baseZIndex]="99999" autoZIndex="true" [showCloseIcon]="true">
             <h1 style="font-weight:normal">Search</h1>
-
             <app-search-bar></app-search-bar>
             <app-display-bar></app-display-bar>
           </p-sidebar>
         </div>
       </div>
-
     </div>
     <div class="col-9">
       <div class="row">
-        <div class="col-5">
-          
+        <div class="col-5 mt-4">
+
           <app-curr-detail></app-curr-detail>
         </div>
         <div class="col-7">GRAPHS</div>
