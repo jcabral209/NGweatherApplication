@@ -4,12 +4,12 @@
   </div>
   <div *ngFor="let item of dailyWeatherArr" class="col-2">
     <p-card>
-      <div class="col-12">{{item.timezone}}:00 <br>{{item.dt}}</div>
+      <div class="col-12"> <i> <b>{{item.timezone}}:00 hr</b> <br>{{item.dt}}</i> </div>
       <div class="col-12"><img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="60" alt="">
       </div>
-      <div class="col-12">{{item.temp}}&deg;F</div>
-      <div class="col-12">{{item.windSpeed}} m/h</div>
-      <div class="col-12">{{item.humidity}}%</div>
+      <div class="col-12"> <b>Temp </b> {{item.temp}}&deg;F</div>
+      <div class="col-12"> <b>Wind </b> {{item.windSpeed}} m/h</div>
+      <div class="col-12"> <b>Humidity </b>  {{item.humidity}}%</div>
     </p-card>
   </div>
 </div>
@@ -22,9 +22,9 @@
       <div class="col-12">{{item.dt}}</div>
       <div class="col-12"><img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="60" alt="">
       </div>
-      <div class="col-12">{{item.temp}}&deg;F</div>
-      <div class="col-12">{{item.windSpeed}} m/h</div>
-      <div class="col-12">{{item.humidity}}%</div>
+      <div class="col-12"> <b>Temp </b> {{item.temp}}&deg;F</div>
+      <div class="col-12"> <b>Wind </b> {{item.windSpeed}} m/h</div>
+      <div class="col-12"> <b>Humidity </b> {{item.humidity}}%</div>
     </p-card>
   </div>
 </div>

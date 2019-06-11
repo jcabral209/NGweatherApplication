@@ -20,7 +20,7 @@ export class ForecastDisplayComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.city = 'lodi,us';
+    this.city = 'Lodi, US';
     await this.SForecast.getForecastData(this.city).then(data => {
       console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', data);
       this.fData = data;

@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LaunchComponent } from './views/pages/launch/launch.component';
 import { CurrDetailComponent } from './views/pages/curr-detail/curr-detail.component';
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
@@ -22,7 +21,6 @@ import { ForecastDisplayComponent } from './views/pages/forecast-display/forecas
 @NgModule({
   declarations: [
     AppComponent,
-    LaunchComponent,
     CurrDetailComponent,
     SearchBarComponent,
     DisplayBarComponent,

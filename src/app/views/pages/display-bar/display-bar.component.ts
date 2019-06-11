@@ -20,4 +20,8 @@ export class DisplayBarComponent implements OnInit {
       console.log([...this.cityList]);
     });
   }
+
+  getCityData(inputCity: any) {
+    console.log('This is the input City++++++++++++++++++++++++++++++++++', inputCity);
+  }
 }
