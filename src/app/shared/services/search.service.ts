@@ -29,18 +29,20 @@ export class SearchService {
     return this.parseForecastData(this.searchData);
   }
   parseForecastData(parseD: any) {
-    // console.log('This is PARSED -->', parseD);
+    console.log('This is PARSED -->', parseD);
+
     // let myDate = new Date( your epoch date *1000);
+
     for (const i of [...parseD.list]) {
       console.log('This is i -->', i);
       // const myDate = new Date(i.dt * 1000);
       // i.dt = myDate.toDateString();
       // parseD.city.timezone = myDate.getHours();
       const nfo: ISearchSpecs = {
-        id: parseD.city.id,
-        name: parseD.city.name,
-        lon: parseD.city.coord.lon,
-        lat: parseD.city.coord.lat,
+        id: i.id,
+        name: i.name,
+        lon: i.coord.lon,
+        lat: i.coord.lat,
         temp: i.main.temp,
         pressure: i.main.pressure,
         humidity: i.main.humidity,
@@ -49,9 +51,9 @@ export class SearchService {
         dt: i.dt,
         speed: i.wind.speed,
         deg: i.wind.deg,
-        country: parseD.city.country,
-        rain: parseD.city.rain,
-        snow: parseD.city.snow,
+        country: i.country,
+        rain: i.rain,
+        snow: i.snow,
         main: i.weather[0].main,
         description: i.weather[0].description,
         icon: i.weather[0].icon,

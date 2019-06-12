@@ -1,7 +1,60 @@
+/* @import '/node_modules/hamburgers/_sass/hamburgers/hamburgers.scss'; */
+
 .container-fluid {
     margin: 25px;
 }
-.hamburger{
-    background-color: black;
-    border-bottom: black;
-}
+
+.collapse{
+    position: relative;
+    cursor: pointer;
+  }
+  .collapse span{
+      position: absolute;
+      width: 40px;
+      height: 4px;
+      border-radius: 4px;
+      background-color: black;
+  }
+  
+  .collapse span:nth-child(2) {
+      top: 10px;
+  }
+  .collapse span:nth-child(3){
+      top: -10px;
+  }
+  
+  .hide span:nth-child(2) {
+     transform:rotate(45deg);
+     top:0;
+  }
+  
+  .hide span:nth-child(3){
+     transform:rotate(-45deg);
+     top: 0;
+  }
+  
+  .hide span:nth-child(1){
+    animation:hideMain 1.5s;
+    opacity: 0;
+  }
+  .hide span:nth-child(2),.hide span:nth-child(3) {
+    animation:hide 1.5s;
+  }
+  
+  @keyframes hide{
+    0%{
+      transform:rotate(0);
+    }
+    50%{
+      top:0;
+      transform:rotate(0);
+    }
+  }
+  @keyframes hideMain{
+    49%{
+     opacity: 1;
+    }
+    50%{
+    opacity: 0;
+    }
+  }

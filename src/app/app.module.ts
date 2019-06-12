@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './views/pages/search-bar/search-bar.component';
 import { DisplayBarComponent } from './views/pages/display-bar/display-bar.component';
 import { ForecastDisplayComponent } from './views/pages/forecast-display/forecast-display.component';
+import { DisplaySearchCitiesComponent } from './views/pages/display-search-cities/display-search-cities.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ForecastDisplayComponent } from './views/pages/forecast-display/forecas
     CurrDetailComponent,
     SearchBarComponent,
     DisplayBarComponent,
-    ForecastDisplayComponent
+    ForecastDisplayComponent,
+    DisplaySearchCitiesComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ import { SidebarModule } from 'primeng/sidebar';
 })
 export class AppComponent {
   display = true;
+  // tslint:disable-next-line:typedef-whitespace
+  ifShow : boolean = true;
   title = 'CSA Weather Application';
   toggleSideBar(): void {
     this.display = !this.display;
