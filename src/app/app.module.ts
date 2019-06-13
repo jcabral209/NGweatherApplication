@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
 import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './views/pages/search-bar/search-bar.component';
@@ -40,7 +41,8 @@ import { DisplaySearchCitiesComponent } from './views/pages/display-search-citie
     PanelModule,
     ButtonModule,
     SidebarModule,
-    CardModule
+    CardModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -51,7 +51,7 @@ export class SearchService {
         dt: i.dt,
         speed: i.wind.speed,
         deg: i.wind.deg,
-        country: i.country,
+        country: i.sys.country,
         rain: i.rain,
         snow: i.snow,
         main: i.weather[0].main,

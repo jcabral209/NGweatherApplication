@@ -14,10 +14,12 @@ export class DisplaySearchCitiesComponent implements OnInit {
   sData: ISearchSpecs[] = [];
   list: any[] = [];
   city: string;
+  cityId: number;
 
   constructor(private SService: SearchService) { }
 
   async ngOnInit() {
+
     this.city = 'Stockton, US';
     await this.SService.getSearchData(this.city).then(data => {
       console.log('SearchComponent() SAYS Receiving DATA -->', data);
@@ -26,6 +28,8 @@ export class DisplaySearchCitiesComponent implements OnInit {
 
     });
   }
-
+  citySearch(cityId) {
+    console.log('This is my cityId', this.cityId);
+  }
 }
 

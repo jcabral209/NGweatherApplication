@@ -28,7 +28,7 @@ export class ForecastService {
     // console.log('This is PARSED -->', parseD);
     // let myDate = new Date( your epoch date *1000);
     for (const i of [...parseD.list]) {
-      console.log('This is i -->', i);
+      // console.log('This is i -->', i);
       const myDate = new Date( i.dt * 1000);
       i.dt = myDate.toDateString();
       parseD.city.timezone = myDate.getHours();
@@ -54,7 +54,7 @@ export class ForecastService {
       };
       this.fData.push(nfo);
     }
-    // console.log('This is fDATA -->', this.fData);
+    console.log('This is fDATA -->', this.fData);
     return this.fData;
   }
   formatDate(myDate: Date) {

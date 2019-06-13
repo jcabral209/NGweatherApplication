@@ -1,15 +1,13 @@
 <p-panel>
   <p-header>
     <div class="row ">
-      <!-- <div class="col-1 justify-content:center mt-3"
-
-          
 
 
-            class="collapse" (click)="toggleSideBar() ifShow=!ifShow" [ngClass]="{'hide':!ifShow}"> 
-        
-      </div> -->
-      <div class="col-11 justify-content:center">
+        <div class="col-1 mt-3 text-align:center">
+            <button (click)="toggleSideBar()">Toogle</button>
+        </div>
+   
+      <div class="col-11 text-align:center">
         <h1>{{ title }}</h1>
       </div>
     </div>
@@ -22,8 +20,8 @@
     <div *ngIf="display" class="col-3">
       <div class="row">
         <div class="col-12">
-          <p-sidebar [(visible)]="display" [baseZIndex]="99999" autoZIndex="true" [showCloseIcon]="true">
-            <h1 style="font-weight:normal">Search</h1>
+          <p-sidebar [(visible)]="display" [baseZIndex]="10000" autoZIndex="true" [showCloseIcon]="true" blockScroll="true">
+            <h2 style="font-weight:normal">Search</h2>
             <app-search-bar></app-search-bar>
             <app-display-search-cities></app-display-search-cities>
             <!-- <app-display-bar></app-display-bar> -->
