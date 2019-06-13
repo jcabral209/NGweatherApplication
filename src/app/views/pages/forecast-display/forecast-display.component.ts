@@ -36,7 +36,7 @@ export class ForecastDisplayComponent implements OnInit {
       this.dailyWeatherArr[i] = this.fData[i];
     }
     this.dailyWeatherArr.splice(0, 1);
-    console.log('This is the daily disply ==================>>>>', this.dailyWeatherArr);
+    console.log('This is the daily display ==================>>>>', this.dailyWeatherArr);
   }
 
   getFiveDaysDisplay() {
