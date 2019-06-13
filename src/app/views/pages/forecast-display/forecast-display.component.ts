@@ -45,19 +45,16 @@ export class ForecastDisplayComponent implements OnInit {
     const dates = _.groupBy(this.fData, function (day) { return day.dt; });
 
     console.log('Dates of Week: ', dates);
-
+    const distinctDates = Object.keys(dates);
 
     // const fiveDaysWeather = [];
-    for (let i = 0; i <= dates.length - 1; i++) {
+    for (let i = 0; i <= distinctDates.length - 1; i++) {
       // tslint:disable-next-line:only-arrow-functions
-      const maxTempForAGivenDay = _.maxBy(_.filter(dates, function (day) {
-        return day.dt === dates[i].dt;
-
-        // tslint:disable-next-line: only-arrow-functions
-      }), function (day) { return day.temp_max; });
-      console.log('For Date: ', dates[i].dt);
-      console.log('Maximum Temp is: ', maxTempForAGivenDay.temp);
-      this.fiveDaysWeather.push(dates[i]);
+      const currentDateArray = dates[distinctDates[i]];
+      const maxTempForAGivenDay = _.maxBy(currentDateArray, function (day) { return day.temp_max; });
+      console.log('For Date: ', currentDateArray[0].dt);
+      console.log('Maximum Temp is: ', maxTempForAGivenDay);
+      this.fiveDaysWeather.push(currentDateArray);
     }
     this.fiveDaysWeather.splice(0, 1);
     console.log('This is the FIVE DAYS display ==================>>>>', this.fiveDaysWeather);
