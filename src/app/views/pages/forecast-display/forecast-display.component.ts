@@ -41,16 +41,20 @@ export class ForecastDisplayComponent implements OnInit {
 
   getFiveDaysDisplay() {
     // tslint:disable-next-line:only-arrow-functions
-    const dates = _.uniqBy(this.fData, function(day) { return day.dt; });
+
+    const dates = _.groupBy(this.fData, function (day) { return day.dt; });
 
     console.log('Dates of Week: ', dates);
+
+
     // const fiveDaysWeather = [];
     for (let i = 0; i <= dates.length - 1; i++) {
       // tslint:disable-next-line:only-arrow-functions
-      const maxTempForAGivenDay = _.maxBy(_.filter(this.fData, function(day) {
+      const maxTempForAGivenDay = _.maxBy(_.filter(dates, function (day) {
         return day.dt === dates[i].dt;
-// tslint:disable-next-line: only-arrow-functions
-      }), function(day) { return day.temp; });
+
+        // tslint:disable-next-line: only-arrow-functions
+      }), function (day) { return day.temp_max; });
       console.log('For Date: ', dates[i].dt);
       console.log('Maximum Temp is: ', maxTempForAGivenDay.temp);
       this.fiveDaysWeather.push(dates[i]);
