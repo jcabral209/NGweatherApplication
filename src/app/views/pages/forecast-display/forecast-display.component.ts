@@ -57,6 +57,7 @@ export class ForecastDisplayComponent implements OnInit {
       this.fiveDaysWeather.push(currentDateArray);
     }
     this.fiveDaysWeather.splice(0, 1);
+    this. fiveDaysWeather = Array.prototype.reverse.apply(this.fiveDaysWeather);
     console.log('This is the FIVE DAYS display ==================>>>>', this.fiveDaysWeather);
 
   }
