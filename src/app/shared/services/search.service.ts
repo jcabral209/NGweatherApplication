@@ -65,7 +65,7 @@ export class SearchService {
         description: i.weather[0].description,
         icon: i.weather[0].icon,
 
-        getSearchState(nfo.lon, nfo.lat),
+        // getSearchState(nfo.lon, nfo.lat),
            // forEach(function(nfo) { nfo.state = ' '; }),
       };
 
