@@ -22,9 +22,9 @@ export class ForecastDisplayComponent implements OnInit {
   async ngOnInit() {
     this.city = 'Stockton, US';
     await this.SForecast.getForecastData(this.city).then(data => {
-      console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', data);
+      // console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', data);
       this.fData = data;
-      console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', this.fData);
+      // console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', this.fData);
 
     });
     this.getDailyDisplay();
@@ -36,29 +36,34 @@ export class ForecastDisplayComponent implements OnInit {
       this.dailyWeatherArr[i] = this.fData[i];
     }
     this.dailyWeatherArr.splice(0, 1);
-    console.log('This is the daily display ==================>>>>', this.dailyWeatherArr);
+    // console.log('This is the daily display ==================>>>>', this.dailyWeatherArr);
   }
 
   getFiveDaysDisplay() {
-    // tslint:disable-next-line:only-arrow-functions
 
-    const dates = _.groupBy(this.fData, function (day) { return day.dt; });
-
-    console.log('Dates of Week: ', dates);
+// tslint:disable-next-line: only-arrow-functions
+    const dates = _.groupBy(this.fData, function(day) { return day.dt; });
+    // Group objective array by dates
+    // console.log('Dates of Week: ', dates);
     const distinctDates = Object.keys(dates);
 
-    // const fiveDaysWeather = [];
+    // console.log('Distinct Dates: ', distinctDates);
+    // Change array to an Objective array
+
     for (let i = 0; i <= distinctDates.length - 1; i++) {
-      // tslint:disable-next-line:only-arrow-functions
-      const currentDateArray = dates[distinctDates[i]];
-      const maxTempForAGivenDay = _.maxBy(currentDateArray, function (day) { return day.temp_max; });
-      console.log('For Date: ', currentDateArray[0].dt);
-      console.log('Maximum Temp is: ', maxTempForAGivenDay);
-      this.fiveDaysWeather.push(currentDateArray);
+      // const currentDateArray = dates[distinctDates[i]];
+
+      const maxTempForAGivenDay = _.maxBy(_.filter(this.fData,
+// tslint:disable-next-line: only-arrow-functions
+      function(date) { return date.dt === distinctDates[i]; }),
+// tslint:disable-next-line: only-arrow-functions
+      function(day) { return day.temp_max; });
+      // Filter the max_temp per day
+      // console.log('Maximum Temp is: ', maxTempForAGivenDay);
+
+      this.fiveDaysWeather.push(maxTempForAGivenDay);
     }
     this.fiveDaysWeather.splice(0, 1);
-    this. fiveDaysWeather = Array.prototype.reverse.apply(this.fiveDaysWeather);
-    console.log('This is the FIVE DAYS display ==================>>>>', this.fiveDaysWeather);
-
+    // console.log('This is the FIVE DAYS display ==================>>>>', this.fiveDaysWeather);
   }
 }

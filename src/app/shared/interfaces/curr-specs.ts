@@ -96,7 +96,7 @@ export interface IForecast {
     lon: number;
     lat: number;
     polution: number;
-  }
+}
 
 export interface IWeather {
     lon: number;
@@ -121,4 +121,9 @@ export interface IWeather {
     timezone: number;
     id: number;
     name: string;
-  }
+}
+
+export interface IState {
+    country: string;
+    state: string;
+}

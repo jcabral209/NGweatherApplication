@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
+
 import { ISearchSpecs } from '../interfaces/curr-specs';
+import { DataLatLonService } from './data-lat-lon.service';
 
 
 @Injectable({
@@ -11,8 +13,13 @@ export class SearchService {
   private searchData: any;
   private wData: ISearchSpecs;
   private urlSearch = 'find?q=';
+
+
   private sData: ISearchSpecs[] = [];
-  constructor(private dataService: DataService) { }
+  private searchCitiesToDisplay: any;
+
+  constructor(private dataService: DataService,
+              private stateService: DataLatLonService) { }
   async getSearchData(city: string) {
     await this.dataService
       .getUrl(this.urlSearch + city)
@@ -20,23 +27,23 @@ export class SearchService {
       .then(data => {
 
 
-        console.log(data);
+        // console.log(data);
         this.searchData = data;
-        console.log('This is searchData --###------+++===>>>', this.searchData);
+        // console.log('This is searchData --###------+++===>>>', this.searchData);
       });
     // console.log('This is searchData --****--+++====>>>', this.searchData);
     this.parseForecastData(this.searchData);
     return this.parseForecastData(this.searchData);
   }
   parseForecastData(parseD: any) {
-    console.log('This is PARSED -->', parseD);
+    // console.log('This is PARSED -->', parseD);
 
     // let myDate = new Date( your epoch date *1000);
 
     for (const i of [...parseD.list]) {
-      console.log('This is i -->', i);
+      // console.log('This is i -->', i);
       // const myDate = new Date(i.dt * 1000);
-      // i.dt = myDate.toDateString();
+      // i.dt = myDate.toDateString(); ///////////////////
       // parseD.city.timezone = myDate.getHours();
       const nfo: ISearchSpecs = {
         id: i.id,
@@ -57,26 +64,44 @@ export class SearchService {
         main: i.weather[0].main,
         description: i.weather[0].description,
         icon: i.weather[0].icon,
+
+        getSearchState(nfo.lon, nfo.lat),
+           // forEach(function(nfo) { nfo.state = ' '; }),
       };
+
       this.sData.push(nfo);
     }
-    console.log('This is sDATA -->', this.sData);
     return this.sData;
-  }
-  formatDate(myDate: Date) {
-    console.log('Format This Date', myDate);
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let dateFormat = months[(myDate.getMonth())];
-    const days = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
-      '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26',
-      '27', '28', '29', '30', '31'];
-    dateFormat = dateFormat + ' ' + days[myDate.getDate()];
-    dateFormat = dateFormat + ', ' + (myDate.getFullYear()).toString();
-    return dateFormat;
-  }
-  formatTime(myDate: Date) {
-    const hh = myDate.getHours();
-    const mm = myDate.getMinutes();
-    return hh + ':' + mm;
+
+    // console.log('This is sDATA -->', this.sData);
+
+
+    //   getCitiesToDisplay() {
+
+    //     // tslint:disable-next-line: only-arrow-functions
+    //     const States = _.groupBy(this.sData, function (state) { return state.state; });
+    //     // Group objective array by dates
+    //     // console.log('States: ', state);
+    //     const distinctDates = Object.keys(states);
+
+    //     // console.log('Distinct States: ', distinctStates);
+    //     // Change array to an Objective array
+
+    //     for (let i = 0; i <= distinctStates.length - 1; i++) {
+    //       // const currentDateArray = States[distinctStates[i]];
+
+    //       const maxTempForAGivenDay = _.maxBy(_.filter(this.sData,
+    //         // tslint:disable-next-line: only-arrow-functions
+    //         function (state) { return state.state === distinctaStates[i]; }),
+    //         // tslint:disable-next-line: only-arrow-functions
+    //         function (state) { return state.temp_max; });
+    //       // Filter the max_temp per day
+    //       // console.log('Maximum Temp is: ', maxTempForAGivenDay);
+
+    //       this.searchCitiesToDisplay.push(maxTempForAGivenDay);
+    //     }
+    //     // console.log('This is the FIVE DAYS display ==================>>>>', this.searchCitiesToDisplay);
+    //   }
+
   }
 }

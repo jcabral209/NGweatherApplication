@@ -18,7 +18,7 @@ export class ForecastService {
       .then(data => {
         // console.log(data);
         this.apiData = data;
-        console.log('This is APIDATA --###------+++===>>>', this.apiData);
+        // console.log('This is APIDATA --###------+++===>>>', this.apiData);
       });
     // console.log('This is APIDATA ForeCast--****--+++====>>>', this.apiData);
     // this.parseForecastData(this.apiData);
@@ -54,11 +54,11 @@ export class ForecastService {
       };
       this.fData.push(nfo);
     }
-    console.log('This is fDATA -->', this.fData);
+    // console.log('This is fDATA -->', this.fData);
     return this.fData;
   }
   formatDate(myDate: Date) {
-    console.log('Format This Date', myDate);
+    // console.log('Format This Date', myDate);
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let dateFormat = months[(myDate.getMonth())];
     const days = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
