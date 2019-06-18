@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CityService } from 'src/app/shared/services/city.service';
 import { Subscription } from 'rxjs';
 import { SearchService } from 'src/app/shared/services/search.service';
@@ -9,14 +9,21 @@ import { ISearchSpecs } from 'src/app/shared/interfaces/curr-specs';
   templateUrl: './display-search-cities.component.html',
   styleUrls: ['./display-search-cities.component.css']
 })
-export class DisplaySearchCitiesComponent implements OnInit {
+export class DisplaySearchCitiesComponent implements OnInit,
+OnChanges {
 
   sData: ISearchSpecs[] = [];
   list: any[] = [];
   city: string;
   cityId: number;
 
+  @Input() inCity: string;
+
   constructor(private SService: SearchService) { }
+
+  ngOnChanges() {
+    alert(this.inCity);
+  }
 
   async ngOnInit() {
 

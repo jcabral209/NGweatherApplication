@@ -19,7 +19,7 @@ export class SearchService {
 
   constructor(private dataService: DataService,
               private stateService: DataLatLonService,
-              private SearchStateService: SearchStateService) { }
+              private searchStateService: SearchStateService) { }
   async getSearchData(city: string) {
     await this.dataService
       .getUrl(this.urlSearch + city)
@@ -46,7 +46,7 @@ export class SearchService {
       // i.dt = myDate.toDateString(); ///////////////////
       // parseD.city.timezone = myDate.getHours();
 
-      const state = await this.SearchStateService.getSearchState(i.lon, i.lat);
+      const state = await this.searchStateService.getSearchState(i.lon, i.lat);
 
       const nfo: ISearchSpecs = {
         id: i.id,
