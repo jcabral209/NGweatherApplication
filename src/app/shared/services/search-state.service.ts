@@ -9,25 +9,13 @@ import { DataLatLonService } from './data-lat-lon.service';
 export class SearchStateService {
   private searchState: IState[] = [];
   private inData: any;
-  private urlLat: 37.96;  // Temp data
-  private urlLon: -121.29;  // Temp data
   constructor(private dataService: DataLatLonService) { }
 
   async getSearchState(urlLon, urlLat) {
-    await this.dataService
-      .getUrlState(this.urlLat, this.urlLon)
-      .toPromise()
-      .then(stateInfo => {
-
-
-        // console.log(searchData);
-        this.inData = stateInfo;
-        // console.log('This is stateState --###------+++===>>>', this.searchState);
-      });
-    // console.log('This is searchArray --****--+++====>>>', this.searchArray);
-    this.parseStateData(this.inData);
-    return this.parseStateData(this.inData);
-
+    this.inData = await this.dataService
+      .getUrlState(urlLat, urlLon)
+      .toPromise();
+    return this.inData.feautures[0].properties.address.state;
   }
   parseStateData(parseD: any) {
     console.log('This is PARSED -->', parseD);

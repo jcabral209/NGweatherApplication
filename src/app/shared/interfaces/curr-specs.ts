@@ -41,6 +41,7 @@ export interface ISearchSpecs {
     main: Weather;
     description: Weather;
     icon: Weather;
+    state: string;
 }
 
 export interface Main {

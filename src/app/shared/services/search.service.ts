@@ -4,6 +4,7 @@ import { DataService } from './data.service';
 
 import { ISearchSpecs } from '../interfaces/curr-specs';
 import { DataLatLonService } from './data-lat-lon.service';
+import { SearchStateService } from './search-state.service';
 
 
 @Injectable({
@@ -13,13 +14,12 @@ export class SearchService {
   private searchData: any;
   private wData: ISearchSpecs;
   private urlSearch = 'find?q=';
-
-
   private sData: ISearchSpecs[] = [];
   private searchCitiesToDisplay: any;
 
   constructor(private dataService: DataService,
-              private stateService: DataLatLonService) { }
+              private stateService: DataLatLonService,
+              private SearchStateService: SearchStateService) { }
   async getSearchData(city: string) {
     await this.dataService
       .getUrl(this.urlSearch + city)
@@ -35,7 +35,7 @@ export class SearchService {
     this.parseForecastData(this.searchData);
     return this.parseForecastData(this.searchData);
   }
-  parseForecastData(parseD: any) {
+  async parseForecastData(parseD: any) {
     // console.log('This is PARSED -->', parseD);
 
     // let myDate = new Date( your epoch date *1000);
@@ -45,6 +45,9 @@ export class SearchService {
       // const myDate = new Date(i.dt * 1000);
       // i.dt = myDate.toDateString(); ///////////////////
       // parseD.city.timezone = myDate.getHours();
+
+      const state = await this.SearchStateService.getSearchState(i.lon, i.lat);
+
       const nfo: ISearchSpecs = {
         id: i.id,
         name: i.name,
@@ -64,9 +67,8 @@ export class SearchService {
         main: i.weather[0].main,
         description: i.weather[0].description,
         icon: i.weather[0].icon,
+        state,
 
-        // getSearchState(nfo.lon, nfo.lat),
-           // forEach(function(nfo) { nfo.state = ' '; }),
       };
 
       this.sData.push(nfo);
