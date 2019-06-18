@@ -6,17 +6,26 @@ import { DataLatLonService } from './data-lat-lon.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SearchStateService {
+export class SearchForStateService {
+
   private searchState: IState[] = [];
-  private inData: any;
-  constructor(private dataService: DataLatLonService) { }
+  private stateNameData: any;
+  constructor(
+    private dataLatLonService: DataLatLonService
+    ) { }
 
   async getSearchState(urlLon, urlLat) {
-    this.inData = await this.dataService
-      .getUrlState(urlLat, urlLon)
-      .toPromise();
-    return this.inData.feautures[0].properties.address.state;
+    // console.log('In getSearchState', urlLat, urlLon);
+    this.stateNameData = await this.dataLatLonService.getUrlState(urlLat, urlLon).toPromise();
+    // console.log('This stateNameData' +
+    // '**********************************************************************',
+    // this.stateNameData);
+
+    console.log('hhhhhhhhhhhhhhhhhhhhhh', this.stateNameData.features[0].properties.address.state);
+    return this.stateNameData.features[0].properties.address.state;
+
   }
+
   parseStateData(parseD: any) {
     console.log('This is PARSED -->', parseD);
 

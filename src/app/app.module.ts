@@ -14,7 +14,7 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 
 import { CommonModule } from '@angular/common';
-import { SearchBarComponent } from './views/pages/search-bar/search-bar.component';
+import { EnterCityBarComponent} from './views/pages/enter-city-bar/enter-city-bar.component';
 import { DisplayBarComponent } from './views/pages/display-bar/display-bar.component';
 import { ForecastDisplayComponent } from './views/pages/forecast-display/forecast-display.component';
 import { DisplaySearchCitiesComponent } from './views/pages/display-search-cities/display-search-cities.component';
@@ -23,8 +23,8 @@ import { DisplaySearchCitiesComponent } from './views/pages/display-search-citie
 @NgModule({
   declarations: [
     AppComponent,
+    EnterCityBarComponent,
     CurrDetailComponent,
-    SearchBarComponent,
     DisplayBarComponent,
     ForecastDisplayComponent,
     DisplaySearchCitiesComponent

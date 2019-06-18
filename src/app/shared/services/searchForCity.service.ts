@@ -1,35 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
 
 import { ISearchSpecs } from '../interfaces/curr-specs';
 import { DataLatLonService } from './data-lat-lon.service';
-import { SearchStateService } from './search-state.service';
-
+import { SearchForStateService } from './search-for-state.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
+export class SearchForCityService {
   private searchData: any;
   private wData: ISearchSpecs;
   private urlSearch = 'find?q=';
   private sData: ISearchSpecs[] = [];
   private searchCitiesToDisplay: any;
+  searchStateService: any;
 
   constructor(private dataService: DataService,
-              private stateService: DataLatLonService,
-              private searchStateService: SearchStateService) { }
+              private findState: DataLatLonService,
+              private searchForStateService: SearchForStateService) { }
   async getSearchData(city: string) {
     await this.dataService
       .getUrl(this.urlSearch + city)
       .toPromise()
       .then(data => {
 
-
         // console.log(data);
         this.searchData = data;
-        // console.log('This is searchData --###------+++===>>>', this.searchData);
+        console.log('This is searchData --###------+++===>>>', this.searchData);
       });
     // console.log('This is searchData --****--+++====>>>', this.searchData);
     this.parseForecastData(this.searchData);
@@ -46,7 +44,7 @@ export class SearchService {
       // i.dt = myDate.toDateString(); ///////////////////
       // parseD.city.timezone = myDate.getHours();
 
-      const state = await this.searchStateService.getSearchState(i.lon, i.lat);
+      const selectedState = await this.searchForStateService.getSearchState(i.coord.lon, i.coord.lat);
 
       const nfo: ISearchSpecs = {
         id: i.id,
@@ -67,43 +65,15 @@ export class SearchService {
         main: i.weather[0].main,
         description: i.weather[0].description,
         icon: i.weather[0].icon,
-        state,
-
+        state: selectedState,
       };
 
       this.sData.push(nfo);
+      console.log('This is sDATA FROM SEARCH ForCITY-->', this.sData);
+      console.log('This is sDATA FROM SEARCH ForCITY-->');
     }
     return this.sData;
 
-    // console.log('This is sDATA -->', this.sData);
-
-
-    //   getCitiesToDisplay() {
-
-    //     // tslint:disable-next-line: only-arrow-functions
-    //     const States = _.groupBy(this.sData, function (state) { return state.state; });
-    //     // Group objective array by dates
-    //     // console.log('States: ', state);
-    //     const distinctDates = Object.keys(states);
-
-    //     // console.log('Distinct States: ', distinctStates);
-    //     // Change array to an Objective array
-
-    //     for (let i = 0; i <= distinctStates.length - 1; i++) {
-    //       // const currentDateArray = States[distinctStates[i]];
-
-    //       const maxTempForAGivenDay = _.maxBy(_.filter(this.sData,
-    //         // tslint:disable-next-line: only-arrow-functions
-    //         function (state) { return state.state === distinctaStates[i]; }),
-    //         // tslint:disable-next-line: only-arrow-functions
-    //         function (state) { return state.temp_max; });
-    //       // Filter the max_temp per day
-    //       // console.log('Maximum Temp is: ', maxTempForAGivenDay);
-
-    //       this.searchCitiesToDisplay.push(maxTempForAGivenDay);
-    //     }
-    //     // console.log('This is the FIVE DAYS display ==================>>>>', this.searchCitiesToDisplay);
-    //   }
-
   }
+
 }

@@ -22,7 +22,7 @@
         <div class="col-12">
           <p-sidebar [(visible)]="display" [baseZIndex]="10000" autoZIndex="true" [showCloseIcon]="true" blockScroll="true">
             <h2 style="font-weight:normal">Search</h2>
-            <app-search-bar (handleSearch)= "searchCity($event)"></app-search-bar>
+            <app-enter-city-bar (handleSearch)= "searchCity($event)"></app-enter-city-bar>
             <app-display-search-cities></app-display-search-cities>
             <!-- <app-display-bar></app-display-bar> -->
           </p-sidebar>

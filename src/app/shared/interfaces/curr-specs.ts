@@ -1,26 +1,4 @@
 export interface ICurrSpecs {
-    // lon: Coord;
-    // lat: Coord;
-    // main: Weather;
-    // description: Weather;
-    // icon: Weather;
-    // temp: Main;
-    // pressure: Main;
-    // humidity: Main;
-    // temp_min: Main;
-    // temp_max: Main;
-    // visibility: number;
-    // Speed: Wind;
-    // Gust: Wind;
-    // Deg: Wind;
-    // dt: number;
-    // country: Sys;
-    // sunrise: Sys;
-    // sunset: Sys;
-    // timezone: number;
-    // id: number;
-    // name: string;
-
     lon: number;
     lat: number;
     main: string;
@@ -45,26 +23,6 @@ export interface ICurrSpecs {
 }
 
 export interface ISearchSpecs {
-    // id: number;
-    // name: string;
-    // lon: Coord;
-    // lat: Coord;
-    // temp: Main;
-    // pressure: Main;
-    // humidity: Main;
-    // temp_min: Main;
-    // temp_max: Main;
-    // dt: number;
-    // speed: Wind;
-    // deg: Wind;
-    // country: Sys;
-    // rain: string;
-    // snow: string;
-    // main: Weather;
-    // description: Weather;
-    // icon: Weather;
-    // state: string;
-
     id: number;
     name: string;
     lon: number;
