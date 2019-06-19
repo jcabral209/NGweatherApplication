@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CurrWeatherService } from 'src/app/shared/services/curr-weather.service';
 import { IWeather } from 'src/app/shared/interfaces/curr-specs';
 
-
 @Component({
   selector: 'app-curr-detail',
   templateUrl: './curr-detail.component.html',
@@ -13,12 +12,9 @@ export class CurrDetailComponent implements OnInit {
   weatherData: IWeather;
   list: any[] = [];
   city: string;
-  constructor(
-    private SWeather: CurrWeatherService,
-    ) { }
+  constructor(private SWeather: CurrWeatherService) { }
 
-
-   async ngOnInit() {
+  async ngOnInit() {
     this.city = 'Stockton, US';
     await this.SWeather.getWeatherData(this.city).then(data => {
       // console.log('CurrDetailComponent() SAYS Receiving DATA -->', data);

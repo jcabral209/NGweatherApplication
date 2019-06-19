@@ -18,14 +18,13 @@ OnChanges {
   city: string;
   cityId: number;
 
-  @Input() inCity: string;
-
+  // @Input() inCity: string;
 
 
   constructor(private SService: SearchForCityService) { }
 
   ngOnChanges() {
-    alert(this.inCity);
+    // alert(this.inCity);
   }
 
   async ngOnInit() {
@@ -33,16 +32,18 @@ OnChanges {
     // console.log ('FROM DISPLY SEARCH CITIES ', this.sData);
 
     // this.city = 'Stockton, CA';
-  //   await this.SService.getSearchData(this.city).then(data => {
-  //     // console.log('SearchComponent() SAYS Receiving DATA -->', data);
-  //     this.sData = data;
-  //     // console.log('SearchDisplayComponent() SAYS Receiving DATA -->', this.sData);
+    // console.log('THIS CITY FROM DISPLAY CITIES', this.city);
+    await this.SService.getSearchData(this.city).then(data => {
 
-  //   });
-  // }
-  // citySearch(cityId) {
-    // console.log('This is my cityId', this.cityId);
+      console.log('SearchComponent() SAYS Receiving DATA -->', data);
+      this.sData = data;
+      // console.log('SearchDisplayComponent() SAYS Receiving DATA -->', this.sData);
+
+    });
   }
+  // citySearch(cityId) {
+  //   console.log('This is my cityId', this.cityId);
+  // }
 // filterState(this.sData) {
 
       //   // tslint:disable-next-line: only-arrow-functions

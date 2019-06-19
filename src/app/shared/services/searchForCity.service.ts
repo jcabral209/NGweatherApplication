@@ -17,8 +17,8 @@ export class SearchForCityService {
   searchStateService: any;
 
   constructor(private dataService: DataService,
-              private findState: DataLatLonService,
-              private searchForStateService: SearchForStateService) { }
+    private findState: DataLatLonService,
+    private searchForStateService: SearchForStateService) { }
   async getSearchData(city: string) {
     await this.dataService
       .getUrl(this.urlSearch + city)
@@ -35,7 +35,6 @@ export class SearchForCityService {
   }
   async parseForecastData(parseD: any) {
     // console.log('This is PARSED -->', parseD);
-
     // let myDate = new Date( your epoch date *1000);
 
     for (const i of [...parseD.list]) {

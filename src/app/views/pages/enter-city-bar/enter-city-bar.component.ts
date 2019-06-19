@@ -9,8 +9,6 @@ import { SearchForCityService } from 'src/app/shared/services/searchForCity.serv
   styleUrls: ['./enter-city-bar.component.css']
 })
 export class EnterCityBarComponent implements OnInit {
-// @Output() handleSearch = new EventEmitter();
-  // findCity = '';
 
   list: any[] = [];
   findCity: string;
@@ -29,7 +27,6 @@ export class EnterCityBarComponent implements OnInit {
   searchCity() {
     if (this.findCity !== '') {
       this.lookForCity.getSearchData(this.findCity);
-      // this.handleSearch.emit(this.findCity);
       this.findCity = '';
     }
   }

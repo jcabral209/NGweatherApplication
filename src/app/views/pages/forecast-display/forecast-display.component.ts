@@ -15,17 +15,12 @@ export class ForecastDisplayComponent implements OnInit {
   dailyWeatherArr: IForecast[] = [];
   fiveDaysWeather: IForecast[] = [];
   city: string;
-  constructor(
-    private SForecast: ForecastService
-  ) { }
+  constructor(private SForecast: ForecastService) { }
 
   async ngOnInit() {
     this.city = 'Stockton, US';
     await this.SForecast.getForecastData(this.city).then(data => {
-      // console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', data);
       this.fData = data;
-      // console.log('ForecastDisplayComponent() SAYS Receiving DATA -->', this.fData);
-
     });
     this.getDailyDisplay();
     this.getFiveDaysDisplay();
@@ -41,8 +36,8 @@ export class ForecastDisplayComponent implements OnInit {
 
   getFiveDaysDisplay() {
 
-// tslint:disable-next-line: only-arrow-functions
-    const dates = _.groupBy(this.fData, function(day) { return day.dt; });
+    // tslint:disable-next-line: only-arrow-functions
+    const dates = _.groupBy(this.fData, function (day) { return day.dt; });
     // Group objective array by dates
     // console.log('Dates of Week: ', dates);
     const distinctDates = Object.keys(dates);
@@ -54,10 +49,10 @@ export class ForecastDisplayComponent implements OnInit {
       // const currentDateArray = dates[distinctDates[i]];
 
       const maxTempForAGivenDay = _.maxBy(_.filter(this.fData,
-// tslint:disable-next-line: only-arrow-functions
-      function(date) { return date.dt === distinctDates[i]; }),
-// tslint:disable-next-line: only-arrow-functions
-      function(day) { return day.temp_max; });
+        // tslint:disable-next-line: only-arrow-functions
+        function (date) { return date.dt === distinctDates[i]; }),
+        // tslint:disable-next-line: only-arrow-functions
+        function (day) { return day.temp_max; });
       // Filter the max_temp per day
       // console.log('Maximum Temp is: ', maxTempForAGivenDay);
 
