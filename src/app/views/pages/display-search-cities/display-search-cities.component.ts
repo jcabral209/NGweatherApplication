@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CityService } from 'src/app/shared/services/city.service';
 import { Subscription } from 'rxjs';
+import * as _ from 'lodash';
 
 import { ISearchSpecs } from 'src/app/shared/interfaces/curr-specs';
 import { SearchForCityService } from 'src/app/shared/services/searchForCity.service';
@@ -14,6 +15,7 @@ export class DisplaySearchCitiesComponent implements OnInit,
 OnChanges {
 
   sData: ISearchSpecs[] = [];
+  cityDisplay: ISearchSpecs[] = [];
   list: any[] = [];
   city: string;
   cityId: number;
@@ -37,39 +39,42 @@ OnChanges {
 
       console.log('SearchComponent() SAYS Receiving DATA -->', data);
       this.sData = data;
-      // console.log('SearchDisplayComponent() SAYS Receiving DATA -->', this.sData);
+
+      // this.filterState();
+      console.log('SearchDisplayComponent() SAYS Receiving DATA -->', this.sData);
 
     });
   }
   // citySearch(cityId) {
   //   console.log('This is my cityId', this.cityId);
   // }
-// filterState(this.sData) {
+filterState() {
 
-      //   // tslint:disable-next-line: only-arrow-functions
-      //   const States = _.groupBy(this.sData, function (state) { return state.state; });
-      //   // Group objective array by dates
-      //   // console.log('States: ', state);
-      //   const distinctDates = Object.keys(states);
+   
+       // tslint:disable-next-line: only-arrow-functions
+    const dates = _.groupBy(this.sData, function (day) { return day.state; });
+    // Group objective array by dates
+    console.log('Group States: ', dates);
+    const distinctDates = Object.keys(dates);
 
-      //   // console.log('Distinct States: ', distinctStates);
-      //   // Change array to an Objective array
+    console.log('Distinct Dates: ', distinctDates);
+    // Change array to an Objective array
 
-      //   for (let i = 0; i <= distinctStates.length - 1; i++) {
-      //     // const currentDateArray = States[distinctStates[i]];
+    for (let i = 0; i <= distinctDates.length - 1; i++) {
+     
 
-      //     const maxTempForAGivenDay = _.maxBy(_.filter(this.sData,
-      //       // tslint:disable-next-line: only-arrow-functions
-      //       function (state) { return state.state === distinctaStates[i]; }),
-      //       // tslint:disable-next-line: only-arrow-functions
-      //       function (state) { return state.temp_max; });
-      //     // Filter the max_temp per day
-      //     // console.log('Maximum Temp is: ', maxTempForAGivenDay);
+      const maxTempForAGivenDay = _.maxBy(_.filter(this.sData,
+        // tslint:disable-next-line: only-arrow-functions
+        function (date) { return date.state === distinctDates[i]; }),
+        // tslint:disable-next-line: only-arrow-functions
+        function (day) { return day.temp_max; });
+      // Filter the max_temp per day
+      console.log('Maximum Temp is: ', maxTempForAGivenDay);
 
-      //     this.searchCitiesToDisplay.push(maxTempForAGivenDay);
-      //   }
-      //   // console.log('This is the FIVE DAYS display ==================>>>>', this.searchCitiesToDisplay);
-      // }
+      this.cityDisplay.push(maxTempForAGivenDay);
+    }
+    console.log('This is the cityDisplay ==================>>>>', this.cityDisplay);
+      }
 
 }
 

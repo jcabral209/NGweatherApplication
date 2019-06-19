@@ -13,12 +13,15 @@
       <div class="row">
         <div class="col-12">
   
-          <!-- <img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="50" alt=""> -->
-          <b><i> {{item.name}}, {{item.country}} </i></b><img src="../../../../assets/flags/24x24/{{item.country}}.png"
-            class="flag-align" alt="">
+          <img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="50" alt="">
+          <b><i> {{item.name}}  </i></b>
+        </div>
+        <div class="col-12">
+          {{item.state}}, {{item.country}} <img src="../../../../assets/flags/24x24/{{item.country}}.png"
+          class="flag-align" alt="">
         </div>
         <div class="col-12 pText ">
-          <!-- <p><b  class="tempDisplay">{{item.temp}}&deg;F</b> {{item.description}}</p> -->
+          <p> {{item.description}}</p>
           <h4><b  class="tempDisplay">{{item.temp}}&deg;F</b></h4>
         </div>
 
