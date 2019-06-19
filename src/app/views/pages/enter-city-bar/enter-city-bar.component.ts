@@ -13,7 +13,10 @@ export class EnterCityBarComponent implements OnInit {
   list: any[] = [];
   findCity: string;
 
+  @Output() searchString: EventEmitter<string> = new EventEmitter();
+
   constructor(private lookForCity: SearchForCityService ) { }
+
 
   async ngOnInit() {
   }
@@ -26,7 +29,8 @@ export class EnterCityBarComponent implements OnInit {
 
   searchCity() {
     if (this.findCity !== '') {
-      this.lookForCity.getSearchData(this.findCity);
+      // this.lookForCity.getSearchData(this.findCity);
+      this.searchString.emit(this.findCity);
       this.findCity = '';
     }
   }

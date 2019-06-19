@@ -12,7 +12,15 @@
 }
 
 .pText {
-    font-size: 13px;
+    font-size: 12px
+}
+
+.pTextSt {
+    font-size: 13px
+}
+
+.p {
+    font-size: 10px
 }
 
 .btnConf{

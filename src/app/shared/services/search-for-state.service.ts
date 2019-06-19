@@ -10,20 +10,12 @@ export class SearchForStateService {
 
   private searchState: IState[] = [];
   private stateNameData: any;
-  constructor(
-    private dataLatLonService: DataLatLonService
-    ) { }
+  constructor(private dataLatLonService: DataLatLonService) { }
 
   async getSearchState(urlLon, urlLat) {
-    // console.log('In getSearchState', urlLat, urlLon);
     this.stateNameData = await this.dataLatLonService.getUrlState(urlLat, urlLon).toPromise();
-    // console.log('This stateNameData' +
-    // '**********************************************************************',
-    // this.stateNameData);
-
-    console.log('hhhhhhhhhhhhhhhhhhhhhh', this.stateNameData.features[0].properties.address.state);
+    console.log('In getSearchState  ++++++++++++++', this.stateNameData);
     return this.stateNameData.features[0].properties.address.state;
-
   }
 
   parseStateData(parseD: any) {

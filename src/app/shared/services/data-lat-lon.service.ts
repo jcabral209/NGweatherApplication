@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class DataLatLonService {
 
   constructor(private http: HttpClient) { }
   getUrlState(urlLAT: number, urlLON: number) {
-    console.log(this.urlBase + urlLAT + '&lon=' + urlLON);
     return this.http.get(this.urlBase + 'lat=' + urlLAT + '&lon=' + urlLON);
+    console.log(this.urlBase + urlLAT + '&lon=' + urlLON);
   }
 }

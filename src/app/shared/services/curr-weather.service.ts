@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ICurrSpecs, IWeather } from '../interfaces/curr-specs';
+import { IWeather } from '../interfaces/curr-specs';
 import { DataService } from './data.service';
 
 
