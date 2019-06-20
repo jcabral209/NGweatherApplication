@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CurrWeatherService } from 'src/app/shared/services/curr-weather.service';
 import { IWeather } from 'src/app/shared/interfaces/curr-specs';
 
@@ -9,17 +9,20 @@ import { IWeather } from 'src/app/shared/interfaces/curr-specs';
 })
 export class CurrDetailComponent implements OnInit {
 
-  weatherData: IWeather;
+  @Input() weatherData: IWeather[] = [];
+
+  // weatherData: IWeather;
   list: any[] = [];
   city: string;
-  constructor(private SWeather: CurrWeatherService) { }
+  // constructor(private SWeather: CurrWeatherService) { }
+  constructor() { }
 
   async ngOnInit() {
-    this.city = 'Stockton, US';
-    await this.SWeather.getWeatherData(this.city).then(data => {
-      // console.log('CurrDetailComponent() SAYS Receiving DATA -->', data);
-      this.weatherData = data;
-    });
+    // this.city = 'Stockton, US';
+    // await this.SWeather.getWeatherData(this.city).then(data => {
+    //   // console.log('CurrDetailComponent() SAYS Receiving DATA -->', data);
+    //   this.weatherData = data;
+    // });
     // console.log('NGONinit for Weather', this.weatherData);
   }
 }

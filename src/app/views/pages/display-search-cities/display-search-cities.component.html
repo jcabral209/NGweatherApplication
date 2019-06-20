@@ -7,9 +7,7 @@
 <div *ngIf="cityDisplay">
   <div *ngFor="let item of cityDisplay" class="col-12 btnConf">
   
-    <button  type="button" class="btn btn-light frame mt-4" (click)=citySearch([item.id])>
-      
-        
+    <button  type="button" class="btn btn-light frame mt-4" (click)= "searchCityById(item.id)">
         <div class="row">
           <div class="col-12">
     
@@ -35,10 +33,6 @@
           </div> -->
   
         </div>
-  
-      
-  
     </button>
-  
   </div>
 </div>

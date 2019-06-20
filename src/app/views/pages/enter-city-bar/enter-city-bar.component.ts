@@ -29,7 +29,6 @@ export class EnterCityBarComponent implements OnInit {
 
   searchCity() {
     if (this.findCity !== '') {
-      // this.lookForCity.getSearchData(this.findCity);
       this.searchString.emit(this.findCity);
       this.findCity = '';
     }

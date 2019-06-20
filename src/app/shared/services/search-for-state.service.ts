@@ -14,22 +14,22 @@ export class SearchForStateService {
 
   async getSearchState(urlLon, urlLat) {
     this.stateNameData = await this.dataLatLonService.getUrlState(urlLat, urlLon).toPromise();
-    console.log('In getSearchState  ++++++++++++++', this.stateNameData);
+    // console.log('In getSearchState  ++++++++++++++', this.stateNameData);
     return this.stateNameData.features[0].properties.address.state;
   }
 
   parseStateData(parseD: any) {
-    console.log('This is PARSED -->', parseD);
+    // console.log('This is PARSED -->', parseD);
 
     for (const i of [...parseD.properties.address]) {
-      console.log('This is i -->', i);
+      // console.log('This is i -->', i);
       const nfo: IState = {
         country: i.country,
         state: i.state,
       };
       this.searchState.push(nfo);
     }
-    console.log('This is stateDATA -->', this.searchState);
+    // console.log('This is stateDATA -->', this.searchState);
     return this.searchState;
   }
 }

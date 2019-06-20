@@ -3,17 +3,19 @@ import { IWeather } from '../interfaces/curr-specs';
 import { DataService } from './data.service';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CurrWeatherService {
   private apiData: any;
   private wData: IWeather;
-  private urlWeather = 'weather?q=';
+  private urlWeather = 'weather?id=';
   constructor(private dataService: DataService) { }
-  async getWeatherData(city: string) {
+  async searchCityById(cityId: number) {
+  // async getWeatherData(cityId: number) {
     await this.dataService
-      .getUrl(this.urlWeather + city)
+      .getUrl(this.urlWeather + cityId)
       .toPromise()
       .then(data => {
 
