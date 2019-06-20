@@ -16,7 +16,7 @@ export class DisplaySearchCitiesComponent implements OnInit,
 
   @Input() sData: ISearchSpecs[] = [];
 
-  @Output() searchCityCurrWeather: EventEmitter<number> = new EventEmitter();
+  // @Output() searchCityCurrWeather: EventEmitter<number> = new EventEmitter();
 
   cityDisplay: ISearchSpecs[] = [];
   list: any[] = [];
