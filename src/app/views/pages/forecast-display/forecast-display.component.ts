@@ -27,6 +27,7 @@ export class ForecastDisplayComponent implements OnInit {
   }
 
   getDailyDisplay() {
+    this.dailyWeatherArr = [];
     for (let i = 0; i < 7; i++) {
       this.dailyWeatherArr[i] = this.fData[i];
     }
@@ -35,6 +36,7 @@ export class ForecastDisplayComponent implements OnInit {
   }
 
   getFiveDaysDisplay() {
+    this.fiveDaysWeather = [];
 
     // tslint:disable-next-line: only-arrow-functions
     const dates = _.groupBy(this.fData, function(day) { return day.dt; });
