@@ -14,14 +14,14 @@ export class AppComponent {
 
   sData: ISearchSpecs[] = [];
   wData: IWeather[] = [];
-
+  cityToShow: any;
   display = true;
   // tslint:disable-next-line:typedef-whitespace
   ifShow = true;
   title = 'CSA Weather Application';
 
   constructor(private lookForCity: SearchForCityService,
-              private search4CityByIdCurrWeather: CurrWeatherService) { }
+    private search4CityByIdCurrWeather: CurrWeatherService) { }
 
   toggleSideBar(): void {
     this.display = !this.display;
@@ -45,7 +45,7 @@ export class AppComponent {
     this.search4CityByIdCurrWeather.searchCityById(cityId).then(data => {
 
       // console.log('SearchComponent() SAYS Receiving DATA -->', data);
-      this.wData = data;
+      //  this.wData = data;
 
       // this.filterState();
       // console.log('FROM APP COMPONENT() SAYS Receiving DATA -->', this.sData);
@@ -54,6 +54,11 @@ export class AppComponent {
 
   }
 
-
+  setCityValue(cityValue) {
+    console.log('I am running');
+    this.display = false;
+    this.cityToShow = cityValue;
+    console.log(this.cityToShow);
+  }
 
 }

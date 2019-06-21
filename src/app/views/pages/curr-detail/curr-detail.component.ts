@@ -9,15 +9,18 @@ import { IWeather } from 'src/app/shared/interfaces/curr-specs';
 })
 export class CurrDetailComponent implements OnInit {
 
-  @Input() weatherData: IWeather[] = [];
+  weatherData: IWeather = null;
 
-  // weatherData: IWeather;
   list: any[] = [];
   city: string;
   // constructor(private SWeather: CurrWeatherService) { }
-  constructor() { }
+  constructor(private fromWeatherServices: CurrWeatherService) { }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.fromWeatherServices.selectedCity.subscribe(x => {
+      console.log('jjjjjjjjjjjj', this.weatherData);
+      this.weatherData = x;
+    });
     // this.city = 'Stockton, US';
     // await this.SWeather.getWeatherData(this.city).then(data => {
     //   // console.log('CurrDetailComponent() SAYS Receiving DATA -->', data);

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IWeather } from '../interfaces/curr-specs';
 import { DataService } from './data.service';
+import { Subject } from 'rxjs';
 
 
 
@@ -8,8 +9,9 @@ import { DataService } from './data.service';
   providedIn: 'root'
 })
 export class CurrWeatherService {
-  private apiData: any;
+  public apiData: any;
   private wData: IWeather;
+  public selectedCity= new Subject<any>();
   private urlWeather = 'weather?id=';
   constructor(private dataService: DataService) { }
   async searchCityById(cityId: number) {
@@ -21,10 +23,15 @@ export class CurrWeatherService {
 
         // console.log(data);
         this.apiData = data;
+        //parseData here
+        this.parseData(data);
+        console.log(this.wData);
+        this.selectedCity.next(this.wData);
+//        console.log(this.parseData(data));
         // console.log('CurrWeatherService() SAYS yhis APIDATA ->', this.apiData);
       });
     // console.log('This is fDATA -->', this.fData);
-    return this.parseData(this.apiData);
+    return this.wData;
   }
   parseData(pData: any) {
     const myDate = new Date(pData.dt * 1000);
@@ -58,7 +65,7 @@ export class CurrWeatherService {
       timezone: pData.timezone,
       name: pData.name,
     };
-    return this.wData;
+   // return this.wData;
   }
   formatDate(myDate: Date) {
     // console.log('Format This Date', myDate);

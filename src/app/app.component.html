@@ -24,7 +24,7 @@
             blockScroll="true">
             <h2 style="font-weight:normal">Search</h2>
             <app-enter-city-bar (searchString)="searchForCity($event)"></app-enter-city-bar>
-            <app-display-search-cities [sData]="sData"></app-display-search-cities>
+            <app-display-search-cities [sData]="sData" (searchCityCurrWeather) = 'setCityValue($event)'></app-display-search-cities>
             <!-- <app-display-bar></app-display-bar> -->
           </p-sidebar>
         </div>
