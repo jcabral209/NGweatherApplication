@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row">
 
-    <!-- <div *ngIf="weatherData"> -->
+    <div *ngIf="!weatherData">
+      <div class="div">
+        <h1 class="text-align:right">Look for the weather on your city.</h1>
+      </div>
+
+    </div>
     <div *ngIf="weatherData">
       <div class="col-12">
         <h2><b>Weather in </b></h2>
@@ -20,7 +25,9 @@
         <h5>{{weatherData?.description}}</h5>
       </div>
       <div class="col-12">{{weatherData?.dTime}} </div>
+      <p-card >
       <div class="row table mt-3">
+          
         <div class="col-6"><b> Wind</b></div>
         <div class="col-6"><i>Speed</i> {{weatherData?.windSpeed}} m/h <br><i>Deg</i> {{weatherData?.windDeg}}&deg;
         </div>
@@ -36,7 +43,9 @@
         <div class="col-6">{{weatherData?.sunset}} PST</div>
         <div class="col-6"><b>Geo coords</b></div>
         <div class="col-6">{{weatherData?.lon}}, {{weatherData?.lat}} </div>
+      
       </div>
+    </p-card>
     </div>
   </div>
 </div>

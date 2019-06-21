@@ -20,13 +20,14 @@ export class ForecastService {
       .toPromise()
       .then(data => {
         this.apiData = data;
+        this.parseForecastData(this.apiData);
         console.log(this.fData);
         this.selectedCity.next(this.fData);
         // console.log('This is APIDATA --###------+++===>>>', this.apiData);
       });
     // console.log('This is APIDATA ForeCast--****--+++====>>>', this.apiData);
     // this.parseForecastData(this.apiData);
-    return this.parseForecastData(this.apiData);
+    return this.fData;
   }
   parseForecastData(parseD: any) {
     // console.log('This is PARSED -->', parseD);

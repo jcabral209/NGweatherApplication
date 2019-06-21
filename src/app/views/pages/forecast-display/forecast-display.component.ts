@@ -21,9 +21,9 @@ export class ForecastDisplayComponent implements OnInit {
     this.fromForecastS.selectedCity.subscribe(x => {
       console.log('FROM FORECAST-DISPLAY COMPONENT', this.fData);
       this.fData = x;
+      this.getDailyDisplay();
+      this.getFiveDaysDisplay();
     });
-    this.getDailyDisplay();
-    this.getFiveDaysDisplay();
   }
 
   getDailyDisplay() {

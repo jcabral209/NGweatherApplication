@@ -2,13 +2,13 @@
     margin-top: -10px;
 }
 .table {
-margin-left: 15px;
-width: 350px;
-background-color: transparent;
+margin-left: 10px;
+width: 345px;
+/* background-color: transparent; */
 font-family: Arial, Helvetica, sans-serif;
-border: black solid;
+/* border: black solid;
 border-radius: 10px;
-border-width: thin;
+border-width: thin; */
 align-content: center
 
 }

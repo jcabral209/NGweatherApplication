@@ -6,33 +6,32 @@
 
 <div *ngIf="cityDisplay">
   <div *ngFor="let item of cityDisplay" class="col-12 btnConf">
-  
-    <button  type="button" class="btn btn-light frame mt-4" (click)= "searchCityById(item.id)">
-        <div class="row">
-          <div class="col-12">
-    
-            <img src="https://openweathermap.org/img/w/{{item.icon}}.png" width="50" alt="">
-            <b><i> {{item.name}}  </i></b>
-            <img src="../../../../assets/flags/24x24/{{item.country}}.png"
-            class="flag-align" alt="">
-            
-          </div>
-          <div class="col-12 pTextSt">
-            <p>{{item.state}}, {{item.country}}</p>
-          </div>
-          <div class="col-12 pText ">
-            <p> {{item.description}}</p>
-            <h4><b  class="tempDisplay">{{item.temp}}&deg;F</b></h4>
-          </div>
-  
-          <!-- <div class="col-12 pText "> <b><i>Temp from {{item.temp_min}}&deg;F to
+
+    <button type="button" class="btn btn-light frame mt-4" (click)="searchCityById(item.id)">
+      <div class="row">
+        <div class="col-12">
+
+          <img src="https://openweathermap.org/img/w/{{item?.icon}}.png" width="50" alt="">
+          <b><i> {{item?.name}} </i></b>
+          <img src="../../../../assets/flags/24x24/{{item?.country}}.png" class="flag-align" alt="">
+
+        </div>
+        <div class="col-12 pTextSt">
+          <p>{{item?.state}}, {{item?.country}}</p>
+        </div>
+        <div class="col-12 pText ">
+          <p> {{item?.description}}</p>
+          <h4><b class="tempDisplay">{{item?.temp}}&deg;F</b></h4>
+        </div>
+
+        <!-- <div class="col-12 pText "> <b><i>Temp from {{item.temp_min}}&deg;F to
                 {{item.temp_max}}&deg;F </i> <br>Wind </b>{{item.speed}} m/h
           </div>
           <div class="col-12 pText">
             <b> Coord</b> {{item.lon}}, {{item.lat}}
           </div> -->
-  
-        </div>
+
+      </div>
     </button>
   </div>
 </div>

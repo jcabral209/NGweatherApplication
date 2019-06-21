@@ -16,7 +16,6 @@ export class DisplaySearchCitiesComponent implements OnInit,
   @Input() sData: ISearchSpecs[] = [];  // Input array from searchForCitySERVICES
 
   @Output() searchCityCurrWeather: EventEmitter<any> = new EventEmitter();  // Current Weather (CURR)
-  @Output() searchCityForeWeather: EventEmitter<any> = new EventEmitter();  // Forecast Weather (FORE)
 
   cityDisplay: ISearchSpecs[] = [];  // Array with information to be Display
   list: any[] = [];
@@ -34,20 +33,12 @@ export class DisplaySearchCitiesComponent implements OnInit,
 
   searchCityById(id) {
     this.search4CityByIdCurrWeather.searchCityById(id);
+    this.toForecastS.getForecastById(id);
     this.searchCityCurrWeather.emit();          // Current Weather (CURR)
     if (this.cityId !== '') {
       this.cityId = '';
     }
   }
-
-  getForecastById(id) {
-    this.toForecastS.getForecastById(id);
-    this.searchCityForeWeather.emit();          // Forecast Weather (FORE)
-    if (this.cityId !== '') {
-      this.cityId = '';
-    }
-  }
-
 
 
   filterState() {
