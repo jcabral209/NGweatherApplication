@@ -12,6 +12,7 @@ import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { CommonModule } from '@angular/common';
 import { EnterCityBarComponent} from './views/pages/enter-city-bar/enter-city-bar.component';
@@ -42,10 +43,12 @@ import { DisplaySearchCitiesComponent } from './views/pages/display-search-citie
     ButtonModule,
     SidebarModule,
     CardModule,
-    InputTextModule
+    InputTextModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [SidebarModule]
 })
 export class AppModule { }
+

@@ -22,8 +22,8 @@ export class DisplaySearchCitiesComponent implements OnInit,
   list: any[] = [];
   cityId: string;
 
-  constructor(private search4CityByIdCurrWeather: CurrWeatherService,
-              private toForecastS: ForecastService) { }
+  constructor(private search4CityByIdCurrWeather: CurrWeatherService,   // Current Weather (CURR)
+              private toForecastS: ForecastService) { }                 // Forecast Weather (FORE)
 
   ngOnChanges() {
     this.cityDisplay = [];
@@ -34,7 +34,7 @@ export class DisplaySearchCitiesComponent implements OnInit,
 
   searchCityById(id) {
     this.search4CityByIdCurrWeather.searchCityById(id);
-    this.searchCityCurrWeather.emit();  // Current Weather (CURR)
+    this.searchCityCurrWeather.emit();          // Current Weather (CURR)
     if (this.cityId !== '') {
       this.cityId = '';
     }
@@ -42,7 +42,7 @@ export class DisplaySearchCitiesComponent implements OnInit,
 
   getForecastById(id) {
     this.toForecastS.getForecastById(id);
-    this.searchCityForeWeather.emit();  // Forecast Weather (FORE)
+    this.searchCityForeWeather.emit();          // Forecast Weather (FORE)
     if (this.cityId !== '') {
       this.cityId = '';
     }
@@ -53,7 +53,7 @@ export class DisplaySearchCitiesComponent implements OnInit,
   filterState() {
 
     // tslint:disable-next-line: only-arrow-functions
-    const dates = _.groupBy(this.sData, function (day) { return day.state; });
+    const dates = _.groupBy(this.sData, function(day) { return day.state; });
     // Group objective array by dates
     // console.log('STATES BY GROUPS: ', dates);
     const distinctDates = Object.keys(dates);
@@ -66,9 +66,9 @@ export class DisplaySearchCitiesComponent implements OnInit,
 
       const maxTempForAGivenDay = _.maxBy(_.filter(this.sData,
         // tslint:disable-next-line: only-arrow-functions
-        function (date) { return date.state === distinctDates[i]; }),
+        function(date) { return date.state === distinctDates[i]; }),
         // tslint:disable-next-line: only-arrow-functions
-        function (day) { return day.temp_max; });
+        function(day) { return day.temp_max; });
       // Filter the max_temp per day
       // console.log('Maximum Temp is: ', maxTempForAGivenDay);
 

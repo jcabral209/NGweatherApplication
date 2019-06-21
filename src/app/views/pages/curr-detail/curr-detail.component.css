@@ -2,10 +2,11 @@
     margin-top: -10px;
 }
 .table {
+margin-left: 15px;
 width: 350px;
-background-color: rgb(241, 239, 239);
+background-color: transparent;
 font-family: Arial, Helvetica, sans-serif;
-border: gray solid;
+border: black solid;
 border-radius: 10px;
 border-width: thin;
 align-content: center

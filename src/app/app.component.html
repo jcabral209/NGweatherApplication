@@ -1,10 +1,11 @@
 <p-panel>
   <p-header>
-    <div class="row ">
+    <div class="row">
 
 
       <div class="col-1 mt-3 text-align:center">
-        <button (click)="toggleSideBar()">Toogle</button>
+          
+        <button (click)="toggleSideBar()"  class="fas fa-bars"></button>
       </div>
 
       <div class="col-11 text-align:center">
@@ -35,7 +36,7 @@
         <div class="col-5 mt-4">
           <app-curr-detail></app-curr-detail>
         </div>
-        <div class="col-7">GRAPHS</div>
+        <div class="col-7"></div>
         <div class="col-12">
           <app-forecast-display></app-forecast-display>
         </div>

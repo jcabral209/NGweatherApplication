@@ -2,7 +2,13 @@
 
 .container-fluid {
     margin: 25px;
+    background-image: url("../assets/elia-clerici-1210412-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+   
 }
+
+
 
 .collapse{
     position: relative;
