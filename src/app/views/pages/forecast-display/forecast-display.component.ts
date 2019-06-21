@@ -14,7 +14,7 @@ export class ForecastDisplayComponent implements OnInit {
   list: any[] = [];
   dailyWeatherArr: IForecast[] = [];
   fiveDaysWeather: IForecast[] = [];
- 
+
   constructor(private fromForecastS: ForecastService) { }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class ForecastDisplayComponent implements OnInit {
   getFiveDaysDisplay() {
 
     // tslint:disable-next-line: only-arrow-functions
-    const dates = _.groupBy(this.fData, function (day) { return day.dt; });
+    const dates = _.groupBy(this.fData, function(day) { return day.dt; });
     // Group objective array by dates
     // console.log('Dates of Week: ', dates);
     const distinctDates = Object.keys(dates);
@@ -50,9 +50,9 @@ export class ForecastDisplayComponent implements OnInit {
 
       const maxTempForAGivenDay = _.maxBy(_.filter(this.fData,
         // tslint:disable-next-line: only-arrow-functions
-        function (date) { return date.dt === distinctDates[i]; }),
+        function(date) { return date.dt === distinctDates[i]; }),
         // tslint:disable-next-line: only-arrow-functions
-        function (day) { return day.temp_max; });
+        function(day) { return day.temp_max; });
       // Filter the max_temp per day
       // console.log('Maximum Temp is: ', maxTempForAGivenDay);
 
