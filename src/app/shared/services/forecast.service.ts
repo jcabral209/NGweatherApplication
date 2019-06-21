@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { IForecast } from '../interfaces/curr-specs';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -8,16 +9,19 @@ import { IForecast } from '../interfaces/curr-specs';
 })
 export class ForecastService {
   private apiData: any = {};
-  private urlWeather = 'forecast?q=';
   private fData: IForecast[] = [];
+  public selectedCity = new Subject<any>();
+  private urlWeather = 'forecast?id=';
   constructor(private dataService: DataService) { }
-  async getForecastData(city: string) {
+  async getForecastById(cityId: number) {
+    console.log('CityId FROM FORECAST SERVICES', cityId);
     await this.dataService
-      .getUrl(this.urlWeather + city)
+      .getUrl(this.urlWeather + cityId)
       .toPromise()
       .then(data => {
-        // console.log(data);
         this.apiData = data;
+        console.log(this.fData);
+        this.selectedCity.next(this.fData);
         // console.log('This is APIDATA --###------+++===>>>', this.apiData);
       });
     // console.log('This is APIDATA ForeCast--****--+++====>>>', this.apiData);

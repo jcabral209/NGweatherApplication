@@ -14,13 +14,13 @@ export class ForecastDisplayComponent implements OnInit {
   list: any[] = [];
   dailyWeatherArr: IForecast[] = [];
   fiveDaysWeather: IForecast[] = [];
-  city: string;
-  constructor(private SForecast: ForecastService) { }
+ 
+  constructor(private fromForecastS: ForecastService) { }
 
-  async ngOnInit() {
-    this.city = 'Stockton, US';
-    await this.SForecast.getForecastData(this.city).then(data => {
-      this.fData = data;
+  ngOnInit() {
+    this.fromForecastS.selectedCity.subscribe(x => {
+      console.log('FROM FORECAST-DISPLAY COMPONENT', this.fData);
+      this.fData = x;
     });
     this.getDailyDisplay();
     this.getFiveDaysDisplay();

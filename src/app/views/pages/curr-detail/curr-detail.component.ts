@@ -12,13 +12,11 @@ export class CurrDetailComponent implements OnInit {
   weatherData: IWeather = null;
 
   list: any[] = [];
-  city: string;
-  // constructor(private SWeather: CurrWeatherService) { }
+
   constructor(private fromWeatherServices: CurrWeatherService) { }
 
   ngOnInit() {
     this.fromWeatherServices.selectedCity.subscribe(x => {
-      console.log('jjjjjjjjjjjj', this.weatherData);
       this.weatherData = x;
     });
     // this.city = 'Stockton, US';

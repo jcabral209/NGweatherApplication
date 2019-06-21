@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { SidebarModule } from 'primeng/sidebar';
 import { SearchForCityService } from './shared/services/searchForCity.service';
-import { ISearchSpecs, IWeather } from './shared/interfaces/curr-specs';
+import { ISearchSpecs, IWeather, IForecast } from './shared/interfaces/curr-specs';
 import { CurrWeatherService } from './shared/services/curr-weather.service';
+import { ForecastService } from './shared/services/forecast.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
 
   sData: ISearchSpecs[] = [];
   wData: IWeather[] = [];
+  fData: IForecast[] = [];
   cityToShow: any;
   display = true;
   // tslint:disable-next-line:typedef-whitespace
@@ -21,7 +23,8 @@ export class AppComponent {
   title = 'CSA Weather Application';
 
   constructor(private lookForCity: SearchForCityService,
-    private search4CityByIdCurrWeather: CurrWeatherService) { }
+              private search4CityByIdCurrWeather: CurrWeatherService,
+              private toForecastS: ForecastService) { }
 
   toggleSideBar(): void {
     this.display = !this.display;
@@ -44,14 +47,15 @@ export class AppComponent {
     this.search4CityByIdCurrWeather.searchCityById(cityId);
     this.search4CityByIdCurrWeather.searchCityById(cityId).then(data => {
 
-      // console.log('SearchComponent() SAYS Receiving DATA -->', data);
-      //  this.wData = data;
-
-      // this.filterState();
-      // console.log('FROM APP COMPONENT() SAYS Receiving DATA -->', this.sData);
-
     });
+  }
 
+  getForecastById(cityId) {
+    this.toForecastS.getForecastById(cityId);
+    this.toForecastS.getForecastById(cityId).then(data => {
+
+      this.fData = data;
+    });
   }
 
   setCityValue(cityValue) {

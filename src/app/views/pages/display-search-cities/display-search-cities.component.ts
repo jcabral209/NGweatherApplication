@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import * as _ from 'lodash';
 
-import { ISearchSpecs, IWeather } from 'src/app/shared/interfaces/curr-specs';
-import { SearchForCityService } from 'src/app/shared/services/searchForCity.service';
+import { ISearchSpecs} from 'src/app/shared/interfaces/curr-specs';
 import { CurrWeatherService } from 'src/app/shared/services/curr-weather.service';
+import { ForecastService } from 'src/app/shared/services/forecast.service';
 
 @Component({
   selector: 'app-display-search-cities',
@@ -13,17 +13,17 @@ import { CurrWeatherService } from 'src/app/shared/services/curr-weather.service
 export class DisplaySearchCitiesComponent implements OnInit,
   OnChanges {
 
-  @Input() sData: ISearchSpecs[] = [];
+  @Input() sData: ISearchSpecs[] = [];  // Input array from searchForCitySERVICES
 
-  @Output() searchCityCurrWeather: EventEmitter<any> = new EventEmitter();
+  @Output() searchCityCurrWeather: EventEmitter<any> = new EventEmitter();  // Current Weather (CURR)
+  @Output() searchCityForeWeather: EventEmitter<any> = new EventEmitter();  // Forecast Weather (FORE)
 
-  cityDisplay: ISearchSpecs[] = [];
+  cityDisplay: ISearchSpecs[] = [];  // Array with information to be Display
   list: any[] = [];
-  city: string;
   cityId: string;
 
-  constructor(private SService: SearchForCityService,
-    private search4CityByIdCurrWeather: CurrWeatherService) { }
+  constructor(private search4CityByIdCurrWeather: CurrWeatherService,
+              private toForecastS: ForecastService) { }
 
   ngOnChanges() {
     this.cityDisplay = [];
@@ -33,15 +33,21 @@ export class DisplaySearchCitiesComponent implements OnInit,
   ngOnInit() { }
 
   searchCityById(id) {
-    console.log(id);
     this.search4CityByIdCurrWeather.searchCityById(id);
-    
-    this.searchCityCurrWeather.emit();
+    this.searchCityCurrWeather.emit();  // Current Weather (CURR)
     if (this.cityId !== '') {
-      // this.searchCityCurrWeather.emit(this.cityId);
       this.cityId = '';
     }
   }
+
+  getForecastById(id) {
+    this.toForecastS.getForecastById(id);
+    this.searchCityForeWeather.emit();  // Forecast Weather (FORE)
+    if (this.cityId !== '') {
+      this.cityId = '';
+    }
+  }
+
 
 
   filterState() {

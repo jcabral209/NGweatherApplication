@@ -3,19 +3,17 @@ import { IWeather } from '../interfaces/curr-specs';
 import { DataService } from './data.service';
 import { Subject } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class CurrWeatherService {
   public apiData: any;
   private wData: IWeather;
-  public selectedCity= new Subject<any>();
+  public selectedCity = new Subject<any>();
   private urlWeather = 'weather?id=';
   constructor(private dataService: DataService) { }
   async searchCityById(cityId: number) {
-  // async getWeatherData(cityId: number) {
+    console.log('CITY ID', cityId);
     await this.dataService
       .getUrl(this.urlWeather + cityId)
       .toPromise()
@@ -23,11 +21,10 @@ export class CurrWeatherService {
 
         // console.log(data);
         this.apiData = data;
-        //parseData here
         this.parseData(data);
         console.log(this.wData);
         this.selectedCity.next(this.wData);
-//        console.log(this.parseData(data));
+        //        console.log(this.parseData(data));
         // console.log('CurrWeatherService() SAYS yhis APIDATA ->', this.apiData);
       });
     // console.log('This is fDATA -->', this.fData);
@@ -65,15 +62,15 @@ export class CurrWeatherService {
       timezone: pData.timezone,
       name: pData.name,
     };
-   // return this.wData;
+    // return this.wData;
   }
   formatDate(myDate: Date) {
     // console.log('Format This Date', myDate);
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let dateFormat = months[(myDate.getMonth())];
     const days = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
-                  '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26',
-                  '27', '28', '29', '30', '31'];
+      '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26',
+      '27', '28', '29', '30', '31'];
     dateFormat = dateFormat + ' ' + days[myDate.getDate()];
     dateFormat = dateFormat + ', ' + (myDate.getFullYear()).toString();
     return dateFormat;
